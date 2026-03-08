@@ -11,6 +11,13 @@ app.use(express.json())
 
 app.use("/api/sociabuzz", donationRoutes)
 
-app.listen(config.SERVER.PORT, () => {
+app.get("/", (req,res)=>{
+  res.json({
+    service:"Roblox Donation Backend",
+    status:"running"
+  })
+})
+
+app.listen(config.SERVER.PORT, ()=>{
   console.log("Server running on port", config.SERVER.PORT)
 })
